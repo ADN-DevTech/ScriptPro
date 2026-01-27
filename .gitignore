@@ -33,6 +33,11 @@ ScriptProSetup/obj/
 # Logs
 *.log
 
+# Large files
+*.mp4
+*.avi
+*.mov
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
