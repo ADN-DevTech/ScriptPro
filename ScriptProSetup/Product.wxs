@@ -16,18 +16,18 @@
 
     <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
       <!-- Main Application Files -->
-      <Component Id="ScriptUI.exe" Guid="D2BD1787-84E7-4E82-9C52-D798FA3BF731">
+      <Component Id="ScriptUI.exe" Guid="D2BD1787-84E7-4E82-9C52-D798FA3BF731" Bitness="always64">
         <File Id="file_ScriptUI_exe" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\ScriptUI.exe" KeyPath="yes" Checksum="yes" />
       </Component>
-      <Component Id="ScriptUI.dll" Guid="E1234567-89AB-CDEF-0123-456789ABCDEF">
+      <Component Id="ScriptUI.dll" Guid="E1234567-89AB-CDEF-0123-456789ABCDEF" Bitness="always64">
         <File Id="file_ScriptUI_dll" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\ScriptUI.dll" />
       </Component>
-      <Component Id="DrawingListUC.dll" Guid="7EA07F38-9DE2-4D23-B04C-C447B09A44BE">
+      <Component Id="DrawingListUC.dll" Guid="7EA07F38-9DE2-4D23-B04C-C447B09A44BE" Bitness="always64">
         <File Id="file_DrawingListUC_dll" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\DrawingListUC.dll" KeyPath="yes" />
       </Component>
       
       <!-- Configuration Files -->
-      <Component Id="ConfigFiles" Guid="B1234567-89AB-CDEF-0123-456789ABCDEF">
+      <Component Id="ConfigFiles" Guid="B1234567-89AB-CDEF-0123-456789ABCDEF" Bitness="always64">
         <File Id="file_ScriptUI_runtimeconfig" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\ScriptUI.runtimeconfig.json" />
         <File Id="file_ScriptUI_deps" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\ScriptUI.deps.json" />
         <File Id="file_ScriptUI_config" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\ScriptUI.dll.config" />
@@ -35,7 +35,7 @@
       </Component>
       
       <!-- Help Files -->
-      <Component Id="HelpFiles" Guid="C1234567-89AB-CDEF-0123-456789ABCDEF">
+      <Component Id="HelpFiles" Guid="C1234567-89AB-CDEF-0123-456789ABCDEF" Bitness="always64">
         <File Id="file_Modern_Help_html" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Modern.Help.html" />
       </Component>
     </DirectoryRef>
@@ -47,62 +47,62 @@
     
     <!-- Image Files Component Group -->
     <ComponentGroup Id="ImagesComponentGroup" Directory="ImagesFolder">
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\add.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\checked-unchecked.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\cog.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\delete.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\folder_add.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\help.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\magic_wand_2.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\script-add.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\script-go-checked.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\script-go-failed.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\script-go-selected.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\script-new.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\script-save.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\smallcog.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\stop.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\table_add.png" />
       </Component>
-      <Component Guid="*">
+      <Component Guid="*" Bitness="always64">
         <File Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Images\wrench.png" />
       </Component>
     </ComponentGroup>
 
     <!-- Step 2: Add the shortcut to your installer package -->
     <DirectoryRef Id="ApplicationProgramsFolder">
-      <Component Id="ApplicationShortcut" Guid="86FD1226-0944-4E82-99A4-6240D4509A7A">
+      <Component Id="ApplicationShortcut" Guid="86FD1226-0944-4E82-99A4-6240D4509A7A" Bitness="always64">
         <Shortcut Id="ApplicationStartMenuShortcut" Name="ScriptPro" Description="ScriptPro 3.0 is a batch processing utility that allows you to apply a set of commands to multiple drawings. Requires .NET 8.0 Desktop Runtime." Target="[#file_ScriptUI_exe]" WorkingDirectory="APPLICATIONROOTDIRECTORY" />
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
         <RegistryValue Root="HKCU" Key="Software\ADN\ScriptPro" Name="installed" Type="integer" Value="1" KeyPath="yes" />

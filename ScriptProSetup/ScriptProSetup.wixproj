@@ -4,6 +4,7 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <SolutionDir>$(MSBuildProjectDirectory)\..\</SolutionDir>
     <Platforms>x64</Platforms>
+    <InstallerPlatform>x64</InstallerPlatform>
   </PropertyGroup>
   
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
