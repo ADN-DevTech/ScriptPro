@@ -1,0 +1,7 @@
+(setq fileName(substr (getvar 'dwgname) 1 (- (strlen (getvar 'dwgname))4)))
+(setq fileName (strcat (getvar "dwgprefix") filename ".pdf"))
+filedia
+0
+(command "-PLOT" "YES" "MODEL" "Dwg To PDF.pc3" "ANSI expand B (11.00 x 17.00 Inches)" "Inches" "Landscape" "NO" "Extents" "Fit" "Center" "Yes" "." "Yes" "" filename "NO" "YES")
+filedia
+1

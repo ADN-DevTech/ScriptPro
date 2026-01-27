@@ -1,0 +1,73 @@
+﻿<Window
+    x:Class="ScriptUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScriptUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mcl="clr-namespace:DrawingListUC;assembly=DrawingListUC"
+    Width="1200"
+    Height="700"
+    WindowState="Maximized"
+    mc:Ignorable="d"
+    Closing="RibbonWindow_Closing"
+    Icon="Images/cog.png"
+    Loaded="RibbonWindow_Loaded"
+    Title="Script Pro 3.0">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Ribbon x:Name="Ribbon" Grid.Row="0" SelectedIndex="0">
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Collapsed" />
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab x:Name="ManageTab" Header="ScriptPro">
+                <RibbonGroup MinWidth="390" Header="List">
+                    <RibbonButton x:Name="NewList" Click="NewList_Click" Label="New" LargeImageSource="Images/script-new.png" />
+                    <RibbonButton x:Name="WizardList" Click="WizardList_Click" Label="Wizard" LargeImageSource="Images/magic_wand_2.png" />
+                    <RibbonButton x:Name="LoadList" Click="LoadList_Click" Label="Load" LargeImageSource="Images/script-add.png" />
+                    <RibbonButton x:Name="SaveList" Click="SaveList_Click" Label="Save" LargeImageSource="Images/script-save.png" />
+                    <RibbonButton x:Name="SaveAsList" Click="SaveAsList_Click" Label="Save As" LargeImageSource="Images/script-save.png" />
+                    <RibbonButton x:Name="LoadSCP" Click="LoadSCP_Click" Label="Load SCP Project" LargeImageSource="Images/table_add.png" />
+                </RibbonGroup>
+
+                <RibbonGroup MinWidth="270" Header="Drawing files">
+                    <RibbonButton x:Name="AddDWGFile" Click="AddDWGFile_Click" Label="Add" LargeImageSource="Images/add.png" />
+                    <RibbonButton x:Name="AddDWGFolder" Click="AddDWGFolder_Click" Label="Add From Folder" LargeImageSource="Images/folder_add.png" />
+                    <RibbonButton x:Name="RemoveDWG" Click="RemoveDWG_Click" Label="Remove" LargeImageSource="Images/delete.png" />
+                    <RibbonButton x:Name="SkipDWG" Click="SkipDWG_Click" Label="Check/Uncheck" LargeImageSource="Images/checked-unchecked.png" />
+                </RibbonGroup>
+
+                <RibbonGroup MinWidth="210" Header="Run">
+                    <RibbonButton x:Name="RunChecked" Click="RunChecked_Click" Label="Checked" LargeImageSource="Images/script-go-checked.png" />
+                    <RibbonButton x:Name="RunSelected" Click="RunSelected_Click" Label="Selected" LargeImageSource="Images/script-go-selected.png" />
+                    <RibbonButton x:Name="RunFailed" Click="RunFailed_Click" Label="Failed" LargeImageSource="Images/script-go-failed.png" />
+                </RibbonGroup>
+
+                <RibbonGroup MinWidth="90" Header="Stop">
+                    <RibbonButton x:Name="StopProcess" Click="StopProcess_Click" Label="Stop" LargeImageSource="Images/stop.png" />
+                </RibbonGroup>
+
+                <RibbonGroup MinWidth="90" Header="Options">
+                    <RibbonButton x:Name="ProcessOptions" Click="ProcessOptions_Click" Label="Settings" LargeImageSource="Images/wrench.png" />
+                </RibbonGroup>
+
+                <RibbonGroup MinWidth="90" Header="Help">
+                    <RibbonButton x:Name="ProcessHelp" Click="ProcessHelp_Click" Label="Help" LargeImageSource="Images/help.png" />
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+
+        <Border Grid.Row="1" Padding="12,20,12,10">
+            <WindowsFormsHost Name="DrawingListUserControl">
+                <mcl:DrawingListControl x:Name="DWGControl" />
+            </WindowsFormsHost>
+        </Border>
+
+    </Grid>
+</Window>

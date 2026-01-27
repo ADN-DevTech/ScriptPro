@@ -1,0 +1,45 @@
+<Project Sdk="WixToolset.Sdk/6.0.2">
+  <PropertyGroup>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <SolutionDir>$(MSBuildProjectDirectory)\..\</SolutionDir>
+    <Platforms>x64</Platforms>
+    <InstallerPlatform>x64</InstallerPlatform>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DefineConstants>Debug</DefineConstants>
+    <StartMenuShortcut Condition="'$(StartMenuShortcut)'==''">1</StartMenuShortcut>
+    <DesktopShortcut Condition="'$(DesktopShortcut)'==''">1</DesktopShortcut>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DefineConstants></DefineConstants>
+    <StartMenuShortcut Condition="'$(StartMenuShortcut)'==''">1</StartMenuShortcut>
+    <DesktopShortcut Condition="'$(DesktopShortcut)'==''">1</DesktopShortcut>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- WiX extensions for .NET detection -->
+    <PackageReference Include="WixToolset.NetFx.wixext" Version="6.0.2" />
+  </ItemGroup>
+  <!--
+  NOTE: ScriptPro 3.0 - .NET 8.0 Installer
+  
+  This installer creates a framework-dependent deployment package for ScriptPro 3.0.
+  Users must have .NET 8.0 Desktop Runtime installed on their system.
+  
+  Prerequisites:
+  - Windows 10 version 1607 or later (64-bit)
+  - .NET 8.0 Desktop Runtime (x64)
+    Download: https://dotnet.microsoft.com/download/dotnet/8.0
+  
+  For alternative deployment strategies:
+  1. Self-contained deployment: Publish with runtime included (larger installer, no runtime prerequisite)
+  2. Single-file deployment: Combine all files into a single executable
+  
+  Build Instructions:
+  - For Debug: Use Debug configuration in solution
+  - For Release: Use Release configuration in solution
+  - The installer will automatically pick up files from Binaries\x64\$(Configuration)\net8.0-windows\
+  -->
+</Project>
