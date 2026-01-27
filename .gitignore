@@ -1,0 +1,40 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+Binaries/
+Standalone/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+*.exe
+*.dll
+*.pdb
+!TestFiles/*.dwg
+!TestFiles/*.scr
+!TestFiles/*.bpl
+
+# Installer
+ScriptProSetup/bin/
+ScriptProSetup/obj/
+*.msi
+*.wixobj
+*.wixpdb
+
+# Logs
+*.log
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+

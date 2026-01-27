@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptUI", "ScriptUI\ScriptUI.csproj", "{8FDA46F5-DB83-49E6-8953-0F893C327BFB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{26255202-2F69-4247-B7D4-17F51D61637C} = {26255202-2F69-4247-B7D4-17F51D61637C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingListUC", "DrawingListUC\DrawingListUC.csproj", "{26255202-2F69-4247-B7D4-17F51D61637C}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ScriptProSetup", "ScriptProSetup\ScriptProSetup.wixproj", "{A7E8B39E-9CA4-475A-8105-40F274791C94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Debug|x64.ActiveCfg = Debug|x64
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Debug|x64.Build.0 = Debug|x64
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Debug|x86.Build.0 = Debug|Any CPU
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Release|x64.ActiveCfg = Release|x64
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Release|x64.Build.0 = Release|x64
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Release|x86.ActiveCfg = Release|Any CPU
+		{8FDA46F5-DB83-49E6-8953-0F893C327BFB}.Release|x86.Build.0 = Release|Any CPU
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Debug|x64.ActiveCfg = Debug|x64
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Debug|x64.Build.0 = Debug|x64
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Debug|x86.Build.0 = Debug|Any CPU
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Release|x64.ActiveCfg = Release|x64
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Release|x64.Build.0 = Release|x64
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Release|x86.ActiveCfg = Release|Any CPU
+		{26255202-2F69-4247-B7D4-17F51D61637C}.Release|x86.Build.0 = Release|Any CPU
+		{A7E8B39E-9CA4-475A-8105-40F274791C94}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{A7E8B39E-9CA4-475A-8105-40F274791C94}.Debug|x64.ActiveCfg = Debug|x86
+		{A7E8B39E-9CA4-475A-8105-40F274791C94}.Debug|x86.ActiveCfg = Debug|x86
+		{A7E8B39E-9CA4-475A-8105-40F274791C94}.Debug|x86.Build.0 = Debug|x86
+		{A7E8B39E-9CA4-475A-8105-40F274791C94}.Release|Any CPU.ActiveCfg = Release|x86
+		{A7E8B39E-9CA4-475A-8105-40F274791C94}.Release|x64.ActiveCfg = Release|x86
+		{A7E8B39E-9CA4-475A-8105-40F274791C94}.Release|x86.ActiveCfg = Release|x86
+		{A7E8B39E-9CA4-475A-8105-40F274791C94}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {786E202C-0784-4605-B92C-6CF726FBABD8}
+	EndGlobalSection
+EndGlobal

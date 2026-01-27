@@ -1,0 +1,23 @@
+[General_Start]
+Version*3
+Product*3.0
+Script*D:\Projects\2025\ScriptProPlus\TestFiles\PlotToPDF.scr
+TimeOut*30
+RestartCount*5
+IniScript*
+LogFileName*C:\Users\moogalm\AppData\Local\Temp\
+AutoCADPath*D:\ACAD\AutoCAD 2026\acad.exe
+Sleep*0
+RunwithoutOpen*False
+[General_End]
+[DWGList_Start]
+D:\Projects\2025\ScriptProPlus\TestFiles\1.dwg,1
+D:\Projects\2025\ScriptProPlus\TestFiles\2.dwg,1
+D:\Projects\2025\ScriptProPlus\TestFiles\3.dwg,1
+D:\Projects\2025\ScriptProPlus\TestFiles\4.dwg,1
+D:\Projects\2025\ScriptProPlus\TestFiles\10.dwg,1
+D:\Projects\2025\ScriptProPlus\TestFiles\11.dwg,1
+D:\Projects\2025\ScriptProPlus\TestFiles\12.dwg,1
+D:\Projects\2025\ScriptProPlus\TestFiles\13.dwg,1
+D:\Projects\2025\ScriptProPlus\TestFiles\14.dwg,1
+[DWGList_End]

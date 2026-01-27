@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Pro</title>
+    <style>
+        /* Set a base font size for rem units */
+        html {
+            font-size: 16px;
+            /* Default base size */
+        }
+
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            /* Improved line height for readability */
+        }
+
+        .container {
+            padding: 1.5rem;
+            /* Using rem for padding */
+            border: 1px solid #ccc;
+            margin: 1rem;
+            /* Add some default margin around the container */
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p,
+        ul,
+        ol,
+        table,
+        pre {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul,
+        ol {
+            padding-left: 1.5rem;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        /* Responsive images (for potential future use) */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Media query for screens wider than 960px (adjusting your previous larger breakpoint) */
+        @media (min-width: 961px) {
+            .container {
+                max-width: 960px;
+                margin: 2rem auto;
+                /* Increased margin on larger screens */
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.75rem;
+            }
+
+            h4 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Media query for tablets and larger phones (up to 960px) */
+        @media (max-width: 960px) {
+            .container {
+                width: 95%;
+                /* Slightly less than 100% for some breathing room */
+                margin: 1rem auto;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Media query for smaller phones (up to 600px) - New breakpoint */
+        @media (max-width: 600px) {
+            .container {
+                width: 100%;
+                margin: 0;
+                /* Remove margin on very small screens */
+                padding: 1rem;
+                /* Slightly reduced padding */
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.9rem;
+            }
+
+            h3 {
+                font-size: 1.6rem;
+            }
+
+            h4 {
+                font-size: 1.3rem;
+            }
+
+            p,
+            ul,
+            ol,
+            table,
+            pre {
+                font-size: 0.95rem;
+                /* Slightly smaller text on very small screens */
+            }
+
+            pre {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                /* For smooth scrolling on iOS */
+            }
+
+            code {
+                display: block;
+                /* Prevent inline scrollbar issues */
+            }
+
+            ul,
+            ol {
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ScriptPro 3.0 Help</h1>
+        
+        <h2>About ScriptPro</h2>
+        <p>ScriptPro 3.0 is a batch processing utility that allows you to apply a set of commands to multiple drawings. Simply specify a script file that contains the commands you want to run on a single drawing, and then use ScriptPro to apply that script to as many drawings as you like. ScriptPro handles opening and closing each drawing for you, with an easy-to-use interface, logging, reusable project files, and robust error recovery.</p>
+        
+        <p><strong>Source Code:</strong> <a href="https://github.com/ADN-DevTech/ScriptPro" target="_blank">ADN-DevTech/ScriptPro on GitHub</a></p>
+        
+        <h3>Useful Resources</h3>
+        <ul>
+            <li><a href="https://blog.autodesk.io/batch-purging-of-drawing-files-using-scriptpro-20/" target="_blank">Batch purging of drawing files using ScriptPro</a></li>
+            <li><a href="https://blog.autodesk.io/batch-recover-using-scriptpro-20/" target="_blank">Batch recover using ScriptPro</a></li>
+        </ul>
+        <h3>System Requirements</h3>
+        <p><strong>Supported AutoCAD Versions:</strong> AutoCAD 2024 and above (Autodesk's current support cycle)</p>
+        <p><strong>Operating System:</strong> 64-bit Windows (Windows 10 or later recommended)</p>
+        <p><strong>Runtime:</strong> .NET 8.0 Desktop Runtime (x64) or above - <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">Download here</a></p>
+        <p><strong>Development:</strong> Visual Studio 2022 with .NET 8.0 SDK (required only for building from source)</p>
+        
+        <h3>Known Limitations</h3>
+        <ul>
+            <li><strong>AutoCAD Version Support:</strong> While older AutoCAD versions (2008-2023) may work via COM automation, they are not officially supported or tested.</li>
+            <li><strong>Existing AutoCAD Sessions:</strong> If AutoCAD is already running when ScriptPro starts, it will attach to that instance and will NOT close it automatically when processing completes. Only AutoCAD instances launched by ScriptPro are closed automatically.</li>
+            <li><strong>Multiple AutoCAD Instances:</strong> When multiple versions of AutoCAD are running simultaneously, ScriptPro will use version-matching logic to select the appropriate instance. If no version is specified in settings, it will launch the most recent AutoCAD release installed on your system (e.g., AutoCAD 2026 over 2025).</li>
+            <li><strong>AutoCAD-based Products:</strong> The application has not been tested with all AutoCAD-based products (AutoCAD LT, Civil 3D, etc.) but should work as it uses standard COM automation interfaces.</li>
+            <li><strong>Platform:</strong> Windows only - no macOS or Linux support (AutoCAD COM automation is Windows-specific).</li>
+        </ul>
+        
+        <h3>Best Practices</h3>
+        <ul>
+            <li><strong>Batch Size:</strong> For optimal performance and stability, process drawings in batches of 50-60 files. For larger projects (100+ drawings), split them into multiple project files or use the command-line interface to run sequential batches.</li>
+            <li><strong>AutoCAD Restart:</strong> Set "Restart AutoCAD after X drawings" to 20-30 for large batches to manage memory usage effectively.</li>
+            <li><strong>Timeout Settings:</strong> Increase timeout values when processing very large or complex drawings (civil, architectural models with xrefs).</li>
+            <li><strong>Test First:</strong> Always test your script on 2-3 sample drawings before processing your entire drawing set.</li>
+            <li><strong>Backup:</strong> Ensure you have backups of your drawings before batch processing, especially when using scripts that modify or save drawings.</li>
+        </ul>
+        
+        <h2>Installation</h2>
+        <p><strong>Using the Installer (Recommended):</strong> Run the ScriptPro MSI installer. It will install the application to your Program Files directory and create a Start Menu shortcut.</p>
+        <p><strong>Standalone Version:</strong> Extract the portable build to any folder and run ScriptUI.exe directly. No installation required.</p>
+        <p><strong>Uninstallation:</strong> From Windows Settings → Apps & features, find "ScriptPro" and uninstall.</p>
+        
+        <h2>Getting Started</h2>
+        
+        <h3>Overview</h3>
+        <p>ScriptPro is a batch-processing tool that runs an AutoCAD script on each drawing in a list of drawing files. Before you begin, you should have a specific task in mind and create a script file to handle it.</p>
+        
+        <h3>Basic Workflow</h3>
+        <ol>
+            <li>Create or select an AutoCAD script file (.scr) containing the commands you want to run</li>
+            <li>Add drawing files to the ScriptPro project</li>
+            <li>Configure any necessary options (timeout, startup script, etc.)</li>
+            <li>Run the project - ScriptPro will open each drawing, run the script, and log the results</li>
+            <li>Review the log files to verify processing completed successfully</li>
+        </ol>
+        
+        <h3>Starting ScriptPro</h3>
+        <p>ScriptPro is a standalone application that runs independently of AutoCAD. Launch it from the Start Menu shortcut or by running ScriptUI.exe directly.</p>
+        
+        <h3>User Interface</h3>
+        <p>The ribbon contains the following groups:</p>
+        <h4>List</h4>
+        <ul>
+            <li><strong>New</strong> - Creates a new ScriptPro project</li>
+            <li><strong>Load</strong> - Loads an existing ScriptPro project (.bpl file)</li>
+            <li><strong>Save</strong> - Saves the current project</li>
+            <li><strong>Save As</strong> - Saves the current project to a new location</li>
+        </ul>
+        
+        <h4>Drawing Files</h4>
+        <ul>
+            <li><strong>Add</strong> - Adds drawing files (DWG & DXF) to the current project</li>
+            <li><strong>Add From Folder</strong> - Adds drawing files from a selected folder (optionally including subfolders)</li>
+            <li><strong>Remove</strong> - Removes the selected files from the project</li>
+            <li><strong>Check/Uncheck</strong> - Toggles whether drawing files will be processed (unchecked files are skipped)</li>
+        </ul>
+        
+        <h4>Run</h4>
+        <ul>
+            <li><strong>Checked</strong> - Runs the script on all checked drawing files</li>
+            <li><strong>Selected</strong> - Runs the script on selected drawing files only</li>
+            <li><strong>Failed</strong> - Re-runs the script on drawings that previously failed</li>
+        </ul>
+        
+        <h4>Stop</h4>
+        <ul>
+            <li><strong>Stop</strong> - Stops the current processing operation</li>
+        </ul>
+        
+        <h4>Options</h4>
+        <ul>
+            <li><strong>Settings</strong> - Opens the Options dialog to configure timeout, logging, startup scripts, and other settings</li>
+        </ul>
+        
+        <h4>Help</h4>
+        <ul>
+            <li><strong>Help</strong> - Opens this help document</li>
+        </ul>
+        <h3>Options Dialog</h3>
+        
+        <h4>Process timeout per drawing (seconds)</h4>
+        <p>How long ScriptPro waits for AutoCAD to respond before aborting the current drawing and moving to the next. Increase this value if processing very large drawings. Default is typically 300 seconds (5 minutes).</p>
+        
+        <h4>Restart AutoCAD after X drawings</h4>
+        <p>Number of drawings to process before restarting AutoCAD. Processing multiple drawings in one session is faster but increases memory usage. Restarting AutoCAD periodically helps manage memory consumption. Set to 0 to never restart.</p>
+        
+        <h4>AutoCAD startup script file</h4>
+        <p>A script file (.scr) to run once when starting a new AutoCAD session. Use this to load LISP routines, .NET plugins, or configure AutoCAD settings before processing drawings.</p>
+        
+        <h4>Process log folder</h4>
+        <p>Location where log files are saved. Two log files are created per session:</p>
+        <ul>
+            <li><strong>Summary log:</strong> <code>ProjectName_DD_HH_MM_SS.log</code> - Lists each drawing and its pass/fail status</li>
+            <li><strong>Detail log:</strong> <code>ProjectName_Detail_DD_HH_MM_SS.log</code> - Contains full AutoCAD command-line output for each drawing</li>
+        </ul>
+        
+        <h4>Create image before closing drawing</h4>
+        <p>Captures a screenshot of the AutoCAD window for each processed drawing. Options: All drawings, Failed drawings only, or None.</p>
+        
+        <h4>Select DWG/DXF files in subdirectories</h4>
+        <p>When enabled, "Add From Folder" will search subdirectories recursively. When disabled, only the selected folder is searched.</p>
+        
+        <h4>Run the tool in diagnostic mode</h4>
+        <p>Pauses processing before closing each drawing, allowing you to verify the drawing state. No timeout occurs in this mode. Useful for debugging scripts.</p>
+        
+        <h4>Delay during process (seconds)</h4>
+        <p>Adds a delay between script commands to give AutoCAD more time to respond. Useful for slower machines or complex operations. Set to 0 for maximum speed.</p>
+        
+        <h4>AutoCAD exe path to use</h4>
+        <p>Specify a particular AutoCAD version to use. If left blank, ScriptPro uses the most recently registered AutoCAD version on your system. If the selected version is already running, ScriptPro will attach to that instance instead of launching a new one.</p>
+        
+        <h4>Run script without opening drawing file</h4>
+        <p>Runs the script on an empty drawing. Enable this when your script contains commands to open and close drawings (e.g., RECOVER command). The drawing list is used to resolve keywords at runtime.</p>
+        <p><strong>Example - Batch Recover Script:</strong></p>
+        <pre><code>; Batch recover script for ScriptPro
+QAFLAGS 31
+_RECOVER
+&lt;acet:cfullfileName&gt;
+_SAVEAS
+2018
+&lt;acet:cFolderName&gt;\&lt;acet:cBaseName&gt;_RECOVERED.dwg
+_CLOSE
+</code></pre>
+        
+        <h3>Command Line Access</h3>
+        <p>ScriptPro supports command-line automation for batch processing:</p>
+        
+        <p><strong>Basic usage:</strong></p>
+        <pre><code>ScriptUI.exe "C:\Projects\MyProject.bpl" run</code></pre>
+        
+        <p><strong>Silent exit (no user interaction required):</strong></p>
+        <pre><code>ScriptUI.exe "C:\Projects\MyProject.bpl" run exit</code></pre>
+        
+        <p>This allows you to run ScriptPro projects from Windows Task Scheduler or batch files for unattended automation.</p>
+        <h3>ScriptPro Keywords</h3>
+        <p>ScriptPro provides special keywords that are replaced with values from the current drawing being processed. This allows you to create dynamic scripts that adapt to each drawing.</p>
+        
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>&lt;acet:cFolderName&gt;</code></td>
+                    <td>Drawing file directory path</td>
+                    <td><code>C:\Drawings</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;acet:cBaseName&gt;</code></td>
+                    <td>File name without extension</td>
+                    <td><code>Floor_Plan</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;acet:cExtension&gt;</code></td>
+                    <td>File extension</td>
+                    <td><code>.dwg</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;acet:cFileName&gt;</code></td>
+                    <td>File name with extension (same as DWGNAME)</td>
+                    <td><code>Floor_Plan.dwg</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;acet:cFullFileName&gt;</code></td>
+                    <td>Full path with file name</td>
+                    <td><code>C:\Drawings\Floor_Plan.dwg</code></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Calling Sub-Scripts</h3>
+        <p>Use the <code>CALL</code> command to execute another script file and return to the main script. This is useful for modular script organization.</p>
+        
+        <p><strong>Example:</strong></p>
+        <pre><code>ZOOM E
+CALL setup.scr
+; Script continues here after setup.scr completes
+_QSAVE
+</code></pre>
+        
+        <p>ScriptPro preprocesses scripts before running, replacing all CALL commands with the actual content of the called scripts. The merged script is placed in the system temporary directory.</p>
+        <h3>Creating Scripts for ScriptPro</h3>
+        
+        <h4>Script Basics</h4>
+        <p>A script is a text file (.scr) containing a series of AutoCAD commands. Create scripts using any text editor (Notepad, VS Code, etc.) and save with ASCII/UTF-8 encoding.</p>
+        
+        <h4>Important Script Guidelines</h4>
+        <ul>
+            <li><strong>File paths with spaces:</strong> Enclose in double quotes<br>
+            Example: <code>-INSERT "C:\My Project Files\sink.dwg"</code></li>
+            <li><strong>Comments:</strong> Lines starting with semicolon (;) are ignored by AutoCAD</li>
+            <li><strong>Saving:</strong> ScriptPro does NOT save drawings automatically. Include <code>_QSAVE</code> or <code>_SAVEAS</code> in your script if needed</li>
+            <li><strong>Opening/Closing:</strong> ScriptPro handles opening and closing drawings automatically (unless "Run script without opening drawing" is enabled)</li>
+            <li><strong>Command prefixes:</strong> Use underscore (_) for English command names to work in all language versions (e.g., <code>_PURGE</code> instead of <code>PURGE</code>)</li>
+        </ul>
+        
+        <h4>Example - Simple Purge Script</h4>
+        <pre><code>; Purge all unused items from drawing
+_-PURGE _ALL * _N
+_QSAVE
+</code></pre>
+        <h2>Contribution</h2>
+        <p>This is an open-source project maintained by Autodesk Developer Network. Contributions are welcome!</p>
+        <ul>
+            <li><strong>Report Issues:</strong> Use the GitHub Issues tab to report bugs or request features</li>
+            <li><strong>Submit Code:</strong> Fork the repository, make your changes, and submit a pull request</li>
+            <li><strong>Documentation:</strong> Help improve this help file or add code comments</li>
+        </ul>
+        <p><strong>Repository:</strong> <a href="https://github.com/ADN-DevTech/ScriptPro" target="_blank">github.com/ADN-DevTech/ScriptPro</a></p>
+        
+        <h2>Credits</h2>
+        <p><strong>Original Version 2.0:</strong> Virupaksha Aithal (with input from Kean Walmsley)</p>
+        <p><strong>Version 3.0 (.NET 8.0 Modernization):</strong> Madhukar Moogala</p>
+        <p><strong>Icons:</strong> <a href="http://www.fatcow.com/free-icons" target="_blank">FatCow Free Icons</a></p>
+        
+        <h2>Further Reading</h2>
+        <ul>
+            <li><a href="https://aps.autodesk.com/developer/overview/autocad" target="_blank">AutoCAD API | Autodesk Platform Services</a></li>
+            <li><a href="https://help.autodesk.com/view/OARX/2025/ENU/" target="_blank">AutoCAD Developer Documentation</a></li>
+        </ul>
+        <h2>Release History</h2>
+        
+        <h3>Version 3.0.0 (2026)</h3>
+        <ul>
+            <li>Upgraded from .NET Framework 3.5 to .NET 8.0</li>
+            <li>Migrated to SDK-style project format</li>
+            <li>Enhanced COM interop for modern .NET with P/Invoke support</li>
+            <li>Improved AutoCAD version detection and attachment logic</li>
+            <li>Intelligent handling of existing vs. newly launched AutoCAD instances</li>
+            <li>Updated to Visual Studio 2022</li>
+            <li>64-bit Windows support (x64)</li>
+            <li>WiX v6 installer with modern deployment options</li>
+            <li>Official support for AutoCAD 2024+</li>
+        </ul>
+        
+        <h3>Version 2.0.3</h3>
+        <ul>
+            <li>Added support for accoreconsole.exe</li>
+        </ul>
+        
+        <h3>Version 2.0.2</h3>
+        <ul>
+            <li>Added keywords capability for dynamic script generation</li>
+            <li>Added silent exit for batch file automation</li>
+            <li>Added option to run script before opening drawing (for RECOVER commands)</li>
+        </ul>
+        
+        <h3>Version 2.0.1</h3>
+        <ul>
+            <li>Added delay setting for process speed control</li>
+            <li>Added option to specify AutoCAD exe path</li>
+        </ul>
+        
+        <h3>Version 2.0 (2010)</h3>
+        <ul>
+            <li>Original release - ground-up rewrite of ScriptPro 1.0</li>
+            <li>Modern WPF Ribbon interface</li>
+            <li>64-bit system support</li>
+            <li>Full source code provided</li>
+        </ul>
+        
+        <hr>
+        
+        <h2>License</h2>
+        <p><strong>Copyright © 2010-2026 Autodesk, Inc.</strong></p>
+        <p>Permission to use, copy, modify, and distribute this software in object code form for any purpose and without fee is hereby granted, provided that the above copyright notice appears in all copies and that both that copyright notice and the limited warranty and restricted rights notice below appear in all supporting documentation.</p>
+        <p><strong>Disclaimer:</strong> AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS. AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE. AUTODESK, INC. DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE UNINTERRUPTED OR ERROR FREE.</p>
+        
+        <p style="margin-top: 2rem; text-align: center; color: #666; font-size: 0.9rem;">
+            ScriptPro 3.0 | Autodesk Developer Network | 2026
+        </p>
+    </div>
+</body>
+
+</html>
