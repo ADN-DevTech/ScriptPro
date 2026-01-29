@@ -2,7 +2,6 @@
   "profiles": {
     "ScriptUI": {
       "commandName": "Project",
-      "commandLineArgs": "\"D:\\Projects\\2025\\ScriptProPlus\\TestFiles\\xyz.bpl\" run exit",
       "workingDirectory": "D:\\Projects\\2025\\ScriptProPlus"
     }
   }

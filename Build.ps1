@@ -46,7 +46,7 @@ if ($Setup) {
     Write-Host "Building installer..." -ForegroundColor Yellow
     
     # Build WiX installer
-    msbuild ScriptProSetup\ScriptProSetup.wixproj /p:Configuration=$Config /v:minimal
+    msbuild ScriptProSetup\ScriptProSetup.wixproj /p:Configuration=$Config /p:Platform=x64 /v:minimal
     
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Installer build failed!" -ForegroundColor Red
@@ -79,15 +79,21 @@ if ($Standalone) {
     # Copy binaries
     Copy-Item "$OutputPath\*" $StandaloneDir -Recurse -Force
     
-    # Copy help file
-    Copy-Item "Modern.Help.html" $StandaloneDir -Force
+    # Copy README.md from root
+    if (Test-Path "README.md") {
+        Copy-Item "README.md" $StandaloneDir -Force
+    }
     
     Write-Host "Standalone package created: $StandaloneDir" -ForegroundColor Green
     
     # Create ZIP
-    $ZipPath = "Standalone\ScriptPro-Portable.zip"
+    $ZipPath = "Release\ScriptPro-Portable.zip"
     if (Test-Path $ZipPath) { Remove-Item $ZipPath -Force }
-    Compress-Archive -Path $StandaloneDir -DestinationPath $ZipPath
+    
+    # Create Release folder if needed
+    if (!(Test-Path "Release")) { New-Item -ItemType Directory -Path "Release" | Out-Null }
+    
+    Compress-Archive -Path "$StandaloneDir\*" -DestinationPath $ZipPath
     
     Write-Host "ZIP created: $ZipPath" -ForegroundColor Green
 }
