@@ -107,6 +107,7 @@ namespace DrawingListUC
         /// </summary>
         public static HashSet<(int, string)> SnapshotAcadPids()
         {
+           
             var IdNameSet = Process.GetProcessesByName("acad").SelectMany(p =>
             {
                 string exePath = "";
@@ -118,6 +119,7 @@ namespace DrawingListUC
                 return exePath != "" ? new[] { (p.Id, exePath) } : Array.Empty<(int, string)>();
             });
             return [.. IdNameSet];
+
         }
 
         /// <summary>

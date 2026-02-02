@@ -13,7 +13,8 @@ namespace DrawingListUC
         public Wizard_Step2()
         {
             InitializeComponent();
-
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             dwgList = new DrawingListControl();
 
             try

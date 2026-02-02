@@ -10,6 +10,8 @@
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <Platforms>AnyCPU;x64</Platforms>
+      <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+      <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
     <!-- Enable COM Interop for AutoCAD automation -->
     <!--<EnableComHosting>true</EnableComHosting>-->
   </PropertyGroup>

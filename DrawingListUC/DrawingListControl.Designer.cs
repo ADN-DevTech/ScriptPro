@@ -67,7 +67,7 @@
             DwgList.ContextMenuStrip = DwgContextMenu;
             DwgList.FullRowSelect = true;
             DwgList.GridLines = true;
-            DwgList.Location = new System.Drawing.Point(49, 146);
+            DwgList.Location = new System.Drawing.Point(49, 125);
             DwgList.Name = "DwgList";
             DwgList.Size = new System.Drawing.Size(544, 305);
             DwgList.TabIndex = 3;
@@ -210,7 +210,8 @@
             scriptGBox.Controls.Add(ScriptBrowse);
             scriptGBox.Location = new System.Drawing.Point(49, 32);
             scriptGBox.Name = "scriptGBox";
-            scriptGBox.Size = new System.Drawing.Size(544, 49);
+            scriptGBox.Size = new System.Drawing.Size(544, 55);
+            scriptGBox.MinimumSize = new System.Drawing.Size(0, 55);
             scriptGBox.TabIndex = 9;
             scriptGBox.TabStop = false;
             scriptGBox.Text = "Script file";
@@ -219,9 +220,9 @@
             // 
             Viewbutton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             Viewbutton.BackColor = System.Drawing.SystemColors.Control;
-            Viewbutton.Location = new System.Drawing.Point(460, 9);
+            Viewbutton.Location = new System.Drawing.Point(460, 18);
             Viewbutton.Name = "Viewbutton";
-            Viewbutton.Size = new System.Drawing.Size(84, 21);
+            Viewbutton.Size = new System.Drawing.Size(84, 28);
             Viewbutton.TabIndex = 2;
             Viewbutton.Text = "Edit";
             Viewbutton.UseVisualStyleBackColor = false;
@@ -231,9 +232,9 @@
             // 
             ScriptBrowse.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             ScriptBrowse.BackColor = System.Drawing.SystemColors.Control;
-            ScriptBrowse.Location = new System.Drawing.Point(362, 9);
+            ScriptBrowse.Location = new System.Drawing.Point(362, 18);
             ScriptBrowse.Name = "ScriptBrowse";
-            ScriptBrowse.Size = new System.Drawing.Size(74, 21);
+            ScriptBrowse.Size = new System.Drawing.Size(74, 28);
             ScriptBrowse.TabIndex = 1;
             ScriptBrowse.Text = "Browse";
             ScriptBrowse.UseVisualStyleBackColor = false;
@@ -241,8 +242,8 @@
             // 
             // ScriptPath
             // 
-            ScriptPath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            ScriptPath.Location = new System.Drawing.Point(49, 98);
+            ScriptPath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            ScriptPath.Location = new System.Drawing.Point(49, 93);
             ScriptPath.Name = "ScriptPath";
             ScriptPath.Size = new System.Drawing.Size(544, 23);
             ScriptPath.TabIndex = 0;
@@ -261,10 +262,10 @@
             // 
             // DrawingListControl
             // 
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(label_filename);
-            Controls.Add(ScriptPath);
             Controls.Add(scriptGBox);
+            Controls.Add(ScriptPath);           
             Controls.Add(DwgList);
             Controls.Add(BPbar);
             Name = "DrawingListControl";

@@ -28,128 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Step1_panel = new System.Windows.Forms.Panel();
-            this.Step3_panel = new System.Windows.Forms.Panel();
-            this.StartScriptPro = new System.Windows.Forms.Button();
-            this.Finish_Button = new System.Windows.Forms.Button();
-            this.Cancel_button = new System.Windows.Forms.Button();
-            this.label1_step1 = new System.Windows.Forms.Label();
-            this.Step2_panel = new System.Windows.Forms.Panel();
-            this.label_step2 = new System.Windows.Forms.Label();
-            this.label_step3 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            Step1_panel = new System.Windows.Forms.Panel();
+            Step3_panel = new System.Windows.Forms.Panel();
+            StartScriptPro = new System.Windows.Forms.Button();
+            Finish_Button = new System.Windows.Forms.Button();
+            Cancel_button = new System.Windows.Forms.Button();
+            label1_step1 = new System.Windows.Forms.Label();
+            Step2_panel = new System.Windows.Forms.Panel();
+            label_step2 = new System.Windows.Forms.Label();
+            label_step3 = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // Step1_panel
             // 
-            this.Step1_panel.Location = new System.Drawing.Point(16, 24);
-            this.Step1_panel.Name = "Step1_panel";
-            this.Step1_panel.Size = new System.Drawing.Size(533, 32);
-            this.Step1_panel.TabIndex = 0;
+            Step1_panel.Location = new System.Drawing.Point(19, 28);
+            Step1_panel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Step1_panel.Name = "Step1_panel";
+            Step1_panel.Size = new System.Drawing.Size(622, 37);
+            Step1_panel.TabIndex = 0;
             // 
             // Step3_panel
             // 
-            this.Step3_panel.Location = new System.Drawing.Point(16, 394);
-            this.Step3_panel.Margin = new System.Windows.Forms.Padding(0);
-            this.Step3_panel.Name = "Step3_panel";
-            this.Step3_panel.Size = new System.Drawing.Size(533, 134);
-            this.Step3_panel.TabIndex = 0;
+            Step3_panel.Location = new System.Drawing.Point(19, 455);
+            Step3_panel.Margin = new System.Windows.Forms.Padding(0);
+            Step3_panel.Name = "Step3_panel";
+            Step3_panel.Size = new System.Drawing.Size(622, 155);
+            Step3_panel.TabIndex = 0;
             // 
             // StartScriptPro
             // 
-            this.StartScriptPro.Location = new System.Drawing.Point(403, 535);
-            this.StartScriptPro.Name = "StartScriptPro";
-            this.StartScriptPro.Size = new System.Drawing.Size(146, 24);
-            this.StartScriptPro.TabIndex = 23;
-            this.StartScriptPro.Text = "Finish && Start ScriptPro";
-            this.StartScriptPro.UseVisualStyleBackColor = true;
-            this.StartScriptPro.Click += new System.EventHandler(this.StartScriptPro_Click);
+            StartScriptPro.Location = new System.Drawing.Point(470, 617);
+            StartScriptPro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            StartScriptPro.Name = "StartScriptPro";
+            StartScriptPro.Size = new System.Drawing.Size(170, 28);
+            StartScriptPro.TabIndex = 23;
+            StartScriptPro.Text = "Finish && Start ScriptPro";
+            StartScriptPro.UseVisualStyleBackColor = true;
+            StartScriptPro.Click += StartScriptPro_Click;
             // 
             // Finish_Button
             // 
-            this.Finish_Button.Location = new System.Drawing.Point(323, 535);
-            this.Finish_Button.Name = "Finish_Button";
-            this.Finish_Button.Size = new System.Drawing.Size(70, 24);
-            this.Finish_Button.TabIndex = 22;
-            this.Finish_Button.Text = "Finish";
-            this.Finish_Button.UseVisualStyleBackColor = true;
-            this.Finish_Button.Click += new System.EventHandler(this.Finish_Button_Click);
+            Finish_Button.Location = new System.Drawing.Point(377, 617);
+            Finish_Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Finish_Button.Name = "Finish_Button";
+            Finish_Button.Size = new System.Drawing.Size(82, 28);
+            Finish_Button.TabIndex = 22;
+            Finish_Button.Text = "Finish";
+            Finish_Button.UseVisualStyleBackColor = true;
+            Finish_Button.Click += Finish_Button_Click;
             // 
             // Cancel_button
             // 
-            this.Cancel_button.Location = new System.Drawing.Point(246, 535);
-            this.Cancel_button.Name = "Cancel_button";
-            this.Cancel_button.Size = new System.Drawing.Size(69, 24);
-            this.Cancel_button.TabIndex = 21;
-            this.Cancel_button.Text = "Cancel";
-            this.Cancel_button.UseVisualStyleBackColor = true;
-            this.Cancel_button.Click += new System.EventHandler(this.Cancel_button_Click);
+            Cancel_button.Location = new System.Drawing.Point(287, 617);
+            Cancel_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Cancel_button.Name = "Cancel_button";
+            Cancel_button.Size = new System.Drawing.Size(80, 28);
+            Cancel_button.TabIndex = 21;
+            Cancel_button.Text = "Cancel";
+            Cancel_button.UseVisualStyleBackColor = true;
+            Cancel_button.Click += Cancel_button_Click;
             // 
             // label1_step1
             // 
-            this.label1_step1.AutoSize = true;
-            this.label1_step1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1_step1.ForeColor = System.Drawing.Color.Blue;
-            this.label1_step1.Location = new System.Drawing.Point(16, 9);
-            this.label1_step1.Name = "label1_step1";
-            this.label1_step1.Size = new System.Drawing.Size(170, 13);
-            this.label1_step1.TabIndex = 24;
-            this.label1_step1.Text = "Step 1 : Select the script file";
-            this.label1_step1.Click += new System.EventHandler(this.label1_step1_Click);
+            label1_step1.AutoSize = true;
+            label1_step1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label1_step1.ForeColor = System.Drawing.Color.Blue;
+            label1_step1.Location = new System.Drawing.Point(19, 10);
+            label1_step1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1_step1.Name = "label1_step1";
+            label1_step1.Size = new System.Drawing.Size(170, 13);
+            label1_step1.TabIndex = 24;
+            label1_step1.Text = "Step 1 : Select the script file";
+            label1_step1.Click += label1_step1_Click;
             // 
             // Step2_panel
             // 
-            this.Step2_panel.Location = new System.Drawing.Point(16, 82);
-            this.Step2_panel.Margin = new System.Windows.Forms.Padding(0);
-            this.Step2_panel.Name = "Step2_panel";
-            this.Step2_panel.Size = new System.Drawing.Size(533, 296);
-            this.Step2_panel.TabIndex = 0;
+            Step2_panel.Location = new System.Drawing.Point(19, 95);
+            Step2_panel.Margin = new System.Windows.Forms.Padding(0);
+            Step2_panel.Name = "Step2_panel";
+            Step2_panel.Size = new System.Drawing.Size(622, 342);
+            Step2_panel.TabIndex = 0;
             // 
             // label_step2
             // 
-            this.label_step2.AutoSize = true;
-            this.label_step2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_step2.ForeColor = System.Drawing.Color.Blue;
-            this.label_step2.Location = new System.Drawing.Point(16, 61);
-            this.label_step2.Name = "label_step2";
-            this.label_step2.Size = new System.Drawing.Size(153, 13);
-            this.label_step2.TabIndex = 25;
-            this.label_step2.Text = "Step 2 : Add drawing files";
+            label_step2.AutoSize = true;
+            label_step2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label_step2.ForeColor = System.Drawing.Color.Blue;
+            label_step2.Location = new System.Drawing.Point(19, 70);
+            label_step2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label_step2.Name = "label_step2";
+            label_step2.Size = new System.Drawing.Size(153, 13);
+            label_step2.TabIndex = 25;
+            label_step2.Text = "Step 2 : Add drawing files";
             // 
             // label_step3
             // 
-            this.label_step3.AutoSize = true;
-            this.label_step3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_step3.ForeColor = System.Drawing.Color.Blue;
-            this.label_step3.Location = new System.Drawing.Point(16, 381);
-            this.label_step3.Name = "label_step3";
-            this.label_step3.Size = new System.Drawing.Size(226, 13);
-            this.label_step3.TabIndex = 26;
-            this.label_step3.Text = "Step 3 : Select the Application version";
+            label_step3.AutoSize = true;
+            label_step3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label_step3.ForeColor = System.Drawing.Color.Blue;
+            label_step3.Location = new System.Drawing.Point(19, 440);
+            label_step3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label_step3.Name = "label_step3";
+            label_step3.Size = new System.Drawing.Size(226, 13);
+            label_step3.TabIndex = 26;
+            label_step3.Text = "Step 3 : Select the Application version";
             // 
             // WizardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 567);
-            this.Controls.Add(this.Step3_panel);
-            this.Controls.Add(this.label_step3);
-            this.Controls.Add(this.Step2_panel);
-            this.Controls.Add(this.label_step2);
-            this.Controls.Add(this.label1_step1);
-            this.Controls.Add(this.Step1_panel);
-            this.Controls.Add(this.StartScriptPro);
-            this.Controls.Add(this.Finish_Button);
-            this.Controls.Add(this.Cancel_button);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "WizardForm";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Wizard : 3 simple steps";
-            this.Load += new System.EventHandler(this.WizardForm_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(670, 654);
+            Controls.Add(Step3_panel);
+            Controls.Add(label_step3);
+            Controls.Add(Step2_panel);
+            Controls.Add(label_step2);
+            Controls.Add(label1_step1);
+            Controls.Add(Step1_panel);
+            Controls.Add(StartScriptPro);
+            Controls.Add(Finish_Button);
+            Controls.Add(Cancel_button);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "WizardForm";
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Wizard : 3 simple steps";
+            Load += WizardForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -15,6 +15,11 @@ namespace DrawingListUC
         public Wizard_Step1()
         {
             InitializeComponent();
+            // Prevent WinForms automatic DPI scaling; let WPF scale the hosted control
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+
+            // Optional: also set a standard AutoScaleDimensions to avoid designer oddities
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);            
         }
 
         private void ScriptBrowse_Click(object sender, EventArgs e)

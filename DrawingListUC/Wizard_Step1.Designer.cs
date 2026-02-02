@@ -28,56 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
+
+            ScriptPath = new System.Windows.Forms.TextBox();
             Viewbutton = new System.Windows.Forms.Button();
             ScriptBrowse = new System.Windows.Forms.Button();
-            ScriptPath = new System.Windows.Forms.TextBox();
             SuspendLayout();
+
+            // 
+            // ScriptPath
+            // 
+            ScriptPath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            ScriptPath.Location = new System.Drawing.Point(3, 3);
+            ScriptPath.Name = "ScriptPath";
+            ScriptPath.Size = new System.Drawing.Size(387, 23);
+            ScriptPath.TabIndex = 0;
             // 
             // Viewbutton
             // 
             Viewbutton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            Viewbutton.BackColor = System.Drawing.SystemColors.Control;
-            Viewbutton.Location = new System.Drawing.Point(1295, 22);
-            Viewbutton.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            Viewbutton.Location = new System.Drawing.Point(396, 2);
             Viewbutton.Name = "Viewbutton";
-            Viewbutton.Size = new System.Drawing.Size(190, 76);
-            Viewbutton.TabIndex = 2;
+            Viewbutton.Size = new System.Drawing.Size(75, 25);
+            Viewbutton.TabIndex = 1;
             Viewbutton.Text = "Edit";
-            Viewbutton.UseVisualStyleBackColor = false;
+            Viewbutton.UseVisualStyleBackColor = true;
             Viewbutton.Click += Viewbutton_Click;
             // 
             // ScriptBrowse
             // 
             ScriptBrowse.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            ScriptBrowse.BackColor = System.Drawing.SystemColors.Control;
-            ScriptBrowse.Location = new System.Drawing.Point(1085, 22);
-            ScriptBrowse.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            ScriptBrowse.Location = new System.Drawing.Point(477, 2);
             ScriptBrowse.Name = "ScriptBrowse";
-            ScriptBrowse.Size = new System.Drawing.Size(190, 76);
-            ScriptBrowse.TabIndex = 1;
+            ScriptBrowse.Size = new System.Drawing.Size(75, 25);
+            ScriptBrowse.TabIndex = 2;
             ScriptBrowse.Text = "Browse";
-            ScriptBrowse.UseVisualStyleBackColor = false;
+            ScriptBrowse.UseVisualStyleBackColor = true;
             ScriptBrowse.Click += ScriptBrowse_Click;
-            // 
-            // ScriptPath
-            // 
-            ScriptPath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            ScriptPath.Location = new System.Drawing.Point(16, 37);
-            ScriptPath.Margin = new System.Windows.Forms.Padding(0);
-            ScriptPath.Name = "ScriptPath";
-            ScriptPath.Size = new System.Drawing.Size(1047, 47);
-            ScriptPath.TabIndex = 0;
             // 
             // Wizard_Step1
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            Controls.Add(Viewbutton);
             Controls.Add(ScriptBrowse);
+            Controls.Add(Viewbutton);
             Controls.Add(ScriptPath);
             Margin = new System.Windows.Forms.Padding(0);
             Name = "Wizard_Step1";
-            Size = new System.Drawing.Size(1496, 145);
+            Size = new System.Drawing.Size(555, 30);
             ResumeLayout(false);
             PerformLayout();
 

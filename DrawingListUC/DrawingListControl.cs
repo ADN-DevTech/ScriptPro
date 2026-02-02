@@ -23,6 +23,8 @@ namespace DrawingListUC
         public DrawingListControl()
         {
             InitializeComponent();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
         }
 
         // Holds the host application - WPF application

@@ -14,6 +14,8 @@ namespace DrawingListUC
         public WizardForm()
         {
             InitializeComponent();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
         }
 
         Wizard_Step1 step1;
