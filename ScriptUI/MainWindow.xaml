@@ -6,12 +6,11 @@
     xmlns:local="clr-namespace:ScriptUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mcl="clr-namespace:DrawingListUC;assembly=DrawingListUC"
-    Width="1200"
+    Width="950"
     Height="700"
-    WindowState="Maximized"
     mc:Ignorable="d"
     Closing="RibbonWindow_Closing"
-    Icon="Images/cog.png"
+    Icon="/Images/ScriptPro3.ico"
     Loaded="RibbonWindow_Loaded"
     Title="Script Pro 3.0">
 
@@ -27,7 +26,7 @@
             </Ribbon.ApplicationMenu>
 
             <RibbonTab x:Name="ManageTab" Header="ScriptPro">
-                <RibbonGroup MinWidth="390" Header="List">
+                <RibbonGroup MinWidth="300" Header="List" Width="277">
                     <RibbonButton x:Name="NewList" Click="NewList_Click" Label="New" LargeImageSource="Images/script-new.png" />
                     <RibbonButton x:Name="WizardList" Click="WizardList_Click" Label="Wizard" LargeImageSource="Images/magic_wand_2.png" />
                     <RibbonButton x:Name="LoadList" Click="LoadList_Click" Label="Load" LargeImageSource="Images/script-add.png" />
@@ -36,34 +35,34 @@
                     <RibbonButton x:Name="LoadSCP" Click="LoadSCP_Click" Label="Load SCP Project" LargeImageSource="Images/table_add.png" />
                 </RibbonGroup>
 
-                <RibbonGroup MinWidth="270" Header="Drawing files">
+                <RibbonGroup MinWidth="260" Header="Drawing files">
                     <RibbonButton x:Name="AddDWGFile" Click="AddDWGFile_Click" Label="Add" LargeImageSource="Images/add.png" />
                     <RibbonButton x:Name="AddDWGFolder" Click="AddDWGFolder_Click" Label="Add From Folder" LargeImageSource="Images/folder_add.png" />
                     <RibbonButton x:Name="RemoveDWG" Click="RemoveDWG_Click" Label="Remove" LargeImageSource="Images/delete.png" />
                     <RibbonButton x:Name="SkipDWG" Click="SkipDWG_Click" Label="Check/Uncheck" LargeImageSource="Images/checked-unchecked.png" />
                 </RibbonGroup>
 
-                <RibbonGroup MinWidth="210" Header="Run">
+                <RibbonGroup MinWidth="160" Header="Run">
                     <RibbonButton x:Name="RunChecked" Click="RunChecked_Click" Label="Checked" LargeImageSource="Images/script-go-checked.png" />
                     <RibbonButton x:Name="RunSelected" Click="RunSelected_Click" Label="Selected" LargeImageSource="Images/script-go-selected.png" />
                     <RibbonButton x:Name="RunFailed" Click="RunFailed_Click" Label="Failed" LargeImageSource="Images/script-go-failed.png" />
                 </RibbonGroup>
 
-                <RibbonGroup MinWidth="90" Header="Stop">
+                <RibbonGroup MinWidth="60" Header="Stop">
                     <RibbonButton x:Name="StopProcess" Click="StopProcess_Click" Label="Stop" LargeImageSource="Images/stop.png" />
                 </RibbonGroup>
 
-                <RibbonGroup MinWidth="90" Header="Options">
+                <RibbonGroup MinWidth="60" Header="Options">
                     <RibbonButton x:Name="ProcessOptions" Click="ProcessOptions_Click" Label="Settings" LargeImageSource="Images/wrench.png" />
                 </RibbonGroup>
 
-                <RibbonGroup MinWidth="90" Header="Help">
+                <RibbonGroup MinWidth="60" Header="Help">
                     <RibbonButton x:Name="ProcessHelp" Click="ProcessHelp_Click" Label="Help" LargeImageSource="Images/help.png" />
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
 
-        <Border Grid.Row="1" Padding="12,20,12,10">
+        <Border Grid.Row="1" Padding="10,10,10,10">
             <WindowsFormsHost Name="DrawingListUserControl">
                 <mcl:DrawingListControl x:Name="DWGControl" />
             </WindowsFormsHost>

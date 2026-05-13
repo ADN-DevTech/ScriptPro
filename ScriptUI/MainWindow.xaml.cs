@@ -599,8 +599,11 @@ namespace ScriptUI
                 UpdateUI(!_IsProcessRunning);
             }
             catch { }
-        }       
+        }
 
+        private void DrawingListUserControl_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
 
+        }
     }
 }

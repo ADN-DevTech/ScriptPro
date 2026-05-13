@@ -12,6 +12,7 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <Platforms>AnyCPU;x64</Platforms>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
     <!-- Enable COM Interop for AutoCAD automation -->
     <EnableComHosting>true</EnableComHosting>
   </PropertyGroup>
@@ -24,6 +25,7 @@
     <Copyright>Copyright © 2025</Copyright>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
+    <ApplicationIcon>Images\ScriptPro3.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -153,6 +155,9 @@
     <Content Include="Images\wrench.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
+    <Content Include="Images\ScriptPro3.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    </ItemGroup>
 
 </Project>

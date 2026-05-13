@@ -67,9 +67,9 @@
             DwgList.ContextMenuStrip = DwgContextMenu;
             DwgList.FullRowSelect = true;
             DwgList.GridLines = true;
-            DwgList.Location = new System.Drawing.Point(49, 125);
+            DwgList.Location = new System.Drawing.Point(14, 80);
             DwgList.Name = "DwgList";
-            DwgList.Size = new System.Drawing.Size(544, 305);
+            DwgList.Size = new System.Drawing.Size(671, 157);
             DwgList.TabIndex = 3;
             DwgList.UseCompatibleStateImageBehavior = false;
             DwgList.View = System.Windows.Forms.View.Details;
@@ -197,9 +197,9 @@
             // 
             BPbar.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             BPbar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            BPbar.Location = new System.Drawing.Point(125, 531);
+            BPbar.Location = new System.Drawing.Point(90, 243);
             BPbar.Name = "BPbar";
-            BPbar.Size = new System.Drawing.Size(468, 25);
+            BPbar.Size = new System.Drawing.Size(595, 25);
             BPbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             BPbar.TabIndex = 4;
             // 
@@ -208,10 +208,11 @@
             scriptGBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             scriptGBox.Controls.Add(Viewbutton);
             scriptGBox.Controls.Add(ScriptBrowse);
-            scriptGBox.Location = new System.Drawing.Point(49, 32);
-            scriptGBox.Name = "scriptGBox";
-            scriptGBox.Size = new System.Drawing.Size(544, 55);
+            scriptGBox.Controls.Add(ScriptPath);
+            scriptGBox.Location = new System.Drawing.Point(14, 16);
             scriptGBox.MinimumSize = new System.Drawing.Size(0, 55);
+            scriptGBox.Name = "scriptGBox";
+            scriptGBox.Size = new System.Drawing.Size(671, 58);
             scriptGBox.TabIndex = 9;
             scriptGBox.TabStop = false;
             scriptGBox.Text = "Script file";
@@ -220,7 +221,7 @@
             // 
             Viewbutton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             Viewbutton.BackColor = System.Drawing.SystemColors.Control;
-            Viewbutton.Location = new System.Drawing.Point(460, 18);
+            Viewbutton.Location = new System.Drawing.Point(581, 18);
             Viewbutton.Name = "Viewbutton";
             Viewbutton.Size = new System.Drawing.Size(84, 28);
             Viewbutton.TabIndex = 2;
@@ -232,7 +233,7 @@
             // 
             ScriptBrowse.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             ScriptBrowse.BackColor = System.Drawing.SystemColors.Control;
-            ScriptBrowse.Location = new System.Drawing.Point(362, 18);
+            ScriptBrowse.Location = new System.Drawing.Point(501, 18);
             ScriptBrowse.Name = "ScriptBrowse";
             ScriptBrowse.Size = new System.Drawing.Size(74, 28);
             ScriptBrowse.TabIndex = 1;
@@ -243,9 +244,9 @@
             // ScriptPath
             // 
             ScriptPath.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            ScriptPath.Location = new System.Drawing.Point(49, 93);
+            ScriptPath.Location = new System.Drawing.Point(6, 22);
             ScriptPath.Name = "ScriptPath";
-            ScriptPath.Size = new System.Drawing.Size(544, 23);
+            ScriptPath.Size = new System.Drawing.Size(489, 23);
             ScriptPath.TabIndex = 0;
             // 
             // label_filename
@@ -254,7 +255,7 @@
             label_filename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             label_filename.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label_filename.ForeColor = System.Drawing.Color.DarkRed;
-            label_filename.Location = new System.Drawing.Point(49, 531);
+            label_filename.Location = new System.Drawing.Point(14, 243);
             label_filename.Name = "label_filename";
             label_filename.Size = new System.Drawing.Size(70, 25);
             label_filename.TabIndex = 10;
@@ -262,19 +263,19 @@
             // 
             // DrawingListControl
             // 
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(label_filename);
             Controls.Add(scriptGBox);
-            Controls.Add(ScriptPath);           
             Controls.Add(DwgList);
             Controls.Add(BPbar);
             Name = "DrawingListControl";
-            Size = new System.Drawing.Size(701, 696);
+            Size = new System.Drawing.Size(701, 286);
             Load += DrawingListControl_Load;
             DwgContextMenu.ResumeLayout(false);
             scriptGBox.ResumeLayout(false);
+            scriptGBox.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
 
         }
 
