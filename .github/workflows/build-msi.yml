@@ -1,0 +1,55 @@
+name: Build and Release MSI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build MSI Installer
+    runs-on: windows-latest
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build MSI Installer
+        shell: pwsh
+        run: |
+          .\Build.ps1 -Setup
+
+      - name: Upload MSI Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ScriptProSetup-MSI
+          path: Release\ScriptProSetup.msi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'push'
+        with:
+          files: Release\ScriptProSetup.msi
+          tag_name: "v${{ github.run_number }}.0.0" # Auto-generate a version or configure it based on commit
+          name: "Latest Master Build (${{ github.run_number }})"
+          body: "Automated release of ScriptProPlus installer."
+          draft: true
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
