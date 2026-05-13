@@ -39,12 +39,6 @@
         <File Id="file_Modern_Help_html" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\Modern.Help.html" KeyPath="yes" />
         <File Id="file_README_md" Source="$(var.SolutionDir)\README.md" />
       </Component>
-      
-      <!-- Runtime Dependencies -->
-      <Component Id="RuntimeDependencies" Guid="D1234567-89AB-CDEF-0123-456789ABCDEF" Bitness="always64">
-        <File Id="file_System_CodeDom_dll" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\System.CodeDom.dll" KeyPath="yes" />
-        <File Id="file_System_Management_dll" Source="$(var.SolutionDir)\Binaries\x64\$(var.Configuration)\net8.0-windows\System.Management.dll" />
-      </Component>
     </DirectoryRef>
     
     <!-- Images Directory -->
@@ -122,7 +116,7 @@
       <ComponentRef Id="DrawingListUC.dll" />
       <ComponentRef Id="ConfigFiles" />
       <ComponentRef Id="HelpFiles" />
-      <ComponentRef Id="RuntimeDependencies" />
+
       <!-- Images folder components will be auto-included via ComponentGroup from Heat -->
       <ComponentGroupRef Id="ImagesComponentGroup" />
       <!-- Step 3: Tell WiX to install the shortcut -->
