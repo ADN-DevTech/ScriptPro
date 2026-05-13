@@ -47,8 +47,8 @@ jobs:
         with:
           files: Release\ScriptProSetup.msi
           tag_name: "v${{ github.run_number }}.0.0" # Auto-generate a version or configure it based on commit
-          name: "Latest Master Build (${{ github.run_number }})"
-          body: "Automated release of ScriptProPlus installer."
+          name: "${{ github.event.head_commit.message }}"
+          body: "Automated build from commit ${{ github.sha }}"
           draft: true
           prerelease: true
         env:
