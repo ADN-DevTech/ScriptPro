@@ -26,6 +26,9 @@ Write-Host "Platform: $Platform"
 Write-Host ""
 
 # Build the solution
+Write-Host "Restoring dependencies..." -ForegroundColor Yellow
+dotnet restore $SolutionPath
+
 Write-Host "Building solution..." -ForegroundColor Yellow
 msbuild $SolutionPath /p:Configuration=$Config /p:Platform=$Platform /t:Rebuild /m /v:minimal
 
