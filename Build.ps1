@@ -29,6 +29,11 @@ Write-Host ""
 Write-Host "Restoring dependencies..." -ForegroundColor Yellow
 dotnet restore $SolutionPath
 
+if ($Setup) {
+    Write-Host "Restoring installer dependencies..." -ForegroundColor Yellow
+    dotnet restore ScriptProSetup\ScriptProSetup.wixproj
+}
+
 Write-Host "Building solution..." -ForegroundColor Yellow
 msbuild $SolutionPath /p:Configuration=$Config /p:Platform=$Platform /t:Rebuild /m /v:minimal
 
