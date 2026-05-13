@@ -56,3 +56,6 @@ Maintained by **Madhukar**.
 ## Community
 Open to the community. Contributions, issues, and suggestions are welcome.
 
+## Contributing
+Please follow [CONTRIBUTING.md](CONTRIBUTING.md), including required PR test evidence from `TestFiles\TEST_CASE.md`.
+
