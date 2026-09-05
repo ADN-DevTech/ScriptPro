@@ -1,0 +1,72 @@
+; PlotAllLayoutsToPNG.scr
+; Xuat anh PNG cho TAT CA cac Layout (khung ten) trong ban ve hien tai,
+; dat cung thu muc va cung ten voi file DWG (them hau to _<TenLayout>.png).
+;
+; Nghiep vu giong het PlotAllLayoutsToPDF_A1.scr, chi doi thiet bi "plot"
+; tu may in ao PDF sang may in ao raster "PublishToWeb PNG.pc3" (co san
+; trong moi ban cai AutoCAD, khong can cai them driver).
+;
+; Cach dung voi ScriptPro:
+;   - Trong ScriptPro, tro Script sang file nay.
+;   - ScriptPro se mo tung DWG va chay script nay tren tung file.
+;
+; Tuy chinh do phan giai:
+;   - Kich thuoc anh dat trong bien *paperSize*, chon theo danh sach co san
+;     cua "PublishToWeb PNG.pc3": "640 x 480 Pixels", "800 x 600 Pixels",
+;     "1024 x 768 Pixels", "1600 x 1280 Pixels" (mac dinh dang dung, lon nhat).
+;   - Neu can do phan giai cao hon (vi du xuat anh ban do quy hoach kho lon,
+;     net chu ro), tao them "Custom size" cho PublishToWeb PNG.pc3 trong
+;     AutoCAD (Plotter Manager) roi doi ten trong bien *paperSize* tuong ung.
+
+(vl-load-com)
+
+(setvar "BACKGROUNDPLOT" 0)
+(setvar "FILEDIA" 0)
+(setvar "CMDECHO" 0)
+
+(setq *paperSize* "1600 x 1280 Pixels")
+(setq *plotDevice* "PublishToWeb PNG.pc3")
+
+(setq acadApp (vlax-get-acad-object))
+(setq acadDoc (vla-get-ActiveDocument acadApp))
+(setq dwgFullName (vla-get-FullName acadDoc))
+(setq dwgFolder (vl-filename-directory dwgFullName))
+(setq dwgBase (vl-filename-base dwgFullName))
+(setq layouts (vla-get-Layouts acadDoc))
+
+(vlax-for lay layouts
+  (setq layName (vla-get-Name lay))
+  (if (/= (strcase layName) "MODEL")
+    (progn
+      (vla-put-ActiveLayout acadDoc lay)
+      (setq pngName (strcat dwgFolder "\\" dwgBase "_" layName ".png"))
+      (vl-catch-all-apply
+        'command
+        (list
+          "-PLOT"
+          "YES"                ; Detailed plot configuration? Yes
+          layName               ; Layout can plot
+          *plotDevice*          ; Output device (raster PNG)
+          *paperSize*           ; Kich thuoc anh (pixels)
+          "Millimeters"         ; Paper units (bo qua voi thiet bi raster)
+          "Landscape"           ; Orientation
+          "NO"                  ; Plot upside down?
+          "Extents"             ; Plot area
+          "Fit"                 ; Plot scale
+          "Center"              ; Plot offset
+          "Yes"                 ; Plot with plot styles
+          "."                   ; Giu nguyen bang plot style hien tai
+          "Yes"                 ; Plot with lineweights
+          ""                    ; Shade plot setting mac dinh
+          pngName                ; Ten file PNG xuat ra
+          "NO"                  ; Save changes to page setup? No
+          "YES"                 ; Proceed with plot
+        )
+      )
+    )
+  )
+)
+
+(setvar "FILEDIA" 1)
+(setvar "CMDECHO" 1)
+(princ)

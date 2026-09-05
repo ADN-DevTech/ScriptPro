@@ -1,0 +1,59 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="DWG Export Manager" Language="1033" Version="1.0.0.0" Manufacturer="ADN"
+           UpgradeCode="3f6a2e4a-8d1c-4b7a-9e2b-6c1a2f7d4b90"
+           InstallerVersion="200">
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <!-- Self-contained build: .NET 8 runtime is bundled inside the published output,      -->
+    <!-- so NO separate .NET 8 Desktop Runtime install is required on the target machine.  -->
+
+    <!-- Harvest toan bo thu muc publish self-contained (exe + dll + .NET 8 runtime).      -->
+    <!-- KHONG dat Subdirectory="yes": thuoc tinh nay duoc WiX hieu la TEN thu muc con can -->
+    <!-- tao (vd tao han thu muc "yes"), khong phai co yes/no - bo qua de giu cau truc goc.-->
+    <ComponentGroup Id="AppFilesComponentGroup" Directory="APPLICATIONROOTDIRECTORY">
+      <Files Include="$(var.PublishDir)**" />
+    </ComponentGroup>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="7c9e1f2b-4a6d-4e3a-9c8b-1a2b3c4d5e6f" Bitness="always64">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="DWG Export Manager"
+                  Description="Duyet thu muc DWG, xem/chon Model hoac Layout va xuat hang loat PDF/PNG."
+                  Target="[APPLICATIONROOTDIRECTORY]DwgExportManager.exe"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY" />
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\ADN\DwgExportManager" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!-- Shortcut ngoai man hinh (Desktop) -->
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="9b3d6e2a-1f4c-4a8e-8b6d-2e5c7a9f0d3b" Bitness="always64">
+        <Shortcut Id="ApplicationDesktopShortcut" Name="DWG Export Manager"
+                  Description="Duyet thu muc DWG, xem/chon Model hoac Layout va xuat hang loat PDF/PNG."
+                  Target="[APPLICATIONROOTDIRECTORY]DwgExportManager.exe"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY" />
+        <RegistryValue Root="HKCU" Key="Software\ADN\DwgExportManager" Name="desktopShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <Feature Id="ProductFeature" Title="DWG Export Manager" Level="1">
+      <ComponentGroupRef Id="AppFilesComponentGroup" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+
+    <Icon Id="icon.ico" SourceFile="$(var.SolutionDir)ScriptUI\Images\ScriptPro3.ico" />
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+
+    <!-- 64-bit Installation Directory -->
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="APPLICATIONROOTDIRECTORY" Name="DwgExportManager" />
+    </StandardDirectory>
+
+    <!-- Start Menu shortcut -->
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ApplicationProgramsFolder" Name="DwgExportManager" />
+    </StandardDirectory>
+  </Package>
+</Wix>

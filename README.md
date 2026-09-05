@@ -15,7 +15,9 @@ The application now supports **AutoCAD 2025 and later** with no changes required
 
 *   **DrawingListUC** – Windows Forms control library (.NET 8)    
 *   **ScriptUI** – WPF application (.NET 8)    
-*   **ScriptProSetup** – WiX-based installer (updated)
+*   **DwgExportManager** – WPF application (.NET 8): browse a folder, pick Model/Layout per drawing, preview in AutoCAD, batch export to PDF/PNG    
+*   **ScriptProSetup** – WiX-based installer (updated), framework-dependent: requires .NET 8 Desktop Runtime on the target machine    
+*   **DwgExportManagerSetup** – WiX-based installer for DwgExportManager, **self-contained**: bundles the .NET 8 runtime, so it runs on machines without .NET 8 installed
     
 
 ## Build
