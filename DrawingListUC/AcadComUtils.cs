@@ -16,7 +16,7 @@ using System.Threading;
 
 namespace DrawingListUC
 {
-    internal static class AcadComUtils
+    public static class AcadComUtils
     {
         // -------------------- PUBLIC API --------------------
 

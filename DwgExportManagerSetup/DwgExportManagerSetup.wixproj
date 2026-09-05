@@ -1,0 +1,39 @@
+<Project Sdk="WixToolset.Sdk/6.0.2">
+  <PropertyGroup>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <SolutionDir>$(MSBuildProjectDirectory)\..\</SolutionDir>
+
+    <!-- Ten file .msi xuat ra -->
+    <OutputName>ExportPdf</OutputName>
+
+    <!-- Thu muc publish self-contained (da nhung san .NET 8 runtime) cua DwgExportManager -->
+    <PublishDir>$(SolutionDir)DwgExportManager\publish\win-x64\</PublishDir>
+
+    <Platforms>x64</Platforms>
+    <InstallerPlatform>x64</InstallerPlatform>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DefineConstants>Debug;PublishDir=$(PublishDir)</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DefineConstants>PublishDir=$(PublishDir)</DefineConstants>
+  </PropertyGroup>
+
+  <!--
+  DWG Export Manager - Self-contained .NET 8 installer
+
+  Khac voi ScriptProSetup (framework-dependent, doi hoi may dich phai
+  cai san .NET 8 Desktop Runtime), installer nay dong goi ban publish
+  SELF CONTAINED (co san .NET 8 runtime ben trong) nen chay duoc tren
+  may khac KHONG can cai .NET 8 rieng.
+
+  Build (2 buoc; WiX SDK harvest file truoc khi Build chay xong nen
+  KHONG the tu dong publish qua BeforeTargets Build, phai publish truoc):
+
+    1) dotnet publish DwgExportManager\DwgExportManager.csproj -c Release -r win-x64 -p:SelfContained=true -p:Platform=x64 -o DwgExportManager\publish\win-x64
+    2) dotnet build DwgExportManagerSetup\DwgExportManagerSetup.wixproj -c Release -p:Platform=x64
+  -->
+</Project>

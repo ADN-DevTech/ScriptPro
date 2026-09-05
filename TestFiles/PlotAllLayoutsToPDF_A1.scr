@@ -1,0 +1,68 @@
+; PlotAllLayoutsToPDF_A1.scr
+; Xuat PDF cho TAT CA cac Layout (khung ten) trong ban ve hien tai
+; sang kho giay A1, tu dong Fit theo Extents, dat cung thu muc
+; va cung ten voi file DWG (them hau to _<TenLayout>.pdf).
+;
+; Cach dung voi ScriptPro:
+;   - Trong ScriptPro, tro Script sang file nay.
+;   - ScriptPro se mo tung DWG va chay script nay tren tung file.
+;
+; Yeu cau:
+;   - May tinh da cai san may in ao "DWG To PDF.pc3" (mac dinh co san trong AutoCAD).
+;   - Trong pc3 do phai co san kho giay "ISO A1 (594.00 x 841.00 MM)".
+;     Neu ten kho giay khac (vi du "ISO full bleed A1 (841.00 x 594.00 MM)"),
+;     sua lai bien *paperSize* ben duoi cho dung.
+
+(vl-load-com)
+
+; Buoc dong bo, tranh loi khi plot nhieu layout lien tiep
+(setvar "BACKGROUNDPLOT" 0)
+(setvar "FILEDIA" 0)
+(setvar "CMDECHO" 0)
+
+(setq *paperSize* "ISO A1 (594.00 x 841.00 MM)")
+(setq *plotDevice* "DWG To PDF.pc3")
+
+(setq acadApp (vlax-get-acad-object))
+(setq acadDoc (vla-get-ActiveDocument acadApp))
+(setq dwgFullName (vla-get-FullName acadDoc))
+(setq dwgFolder (vl-filename-directory dwgFullName))
+(setq dwgBase (vl-filename-base dwgFullName))
+(setq layouts (vla-get-Layouts acadDoc))
+
+(vlax-for lay layouts
+  (setq layName (vla-get-Name lay))
+  (if (/= (strcase layName) "MODEL")
+    (progn
+      (vla-put-ActiveLayout acadDoc lay)
+      (setq pdfName (strcat dwgFolder "\\" dwgBase "_" layName ".pdf"))
+      (vl-catch-all-apply
+        'command
+        (list
+          "-PLOT"
+          "YES"                ; Detailed plot configuration? Yes
+          layName               ; Layout can plot
+          *plotDevice*          ; Output device
+          *paperSize*           ; Paper size
+          "Millimeters"         ; Paper units
+          "Landscape"           ; Orientation
+          "NO"                  ; Plot upside down?
+          "Extents"             ; Plot area
+          "Fit"                 ; Plot scale
+          "Center"              ; Plot offset
+          "Yes"                 ; Plot with plot styles
+          "."                   ; Giu nguyen bang plot style hien tai
+          "Yes"                 ; Plot with lineweights
+          ""                    ; Shade plot setting mac dinh
+          pdfName                ; Ten file PDF xuat ra
+          "NO"                  ; Save changes to page setup? No
+          "YES"                 ; Proceed with plot
+        )
+      )
+    )
+  )
+)
+
+(setvar "FILEDIA" 1)
+(setvar "CMDECHO" 1)
+(princ)

@@ -1,0 +1,133 @@
+<Window x:Class="DwgExportManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="DWG Export Manager" Height="600" Width="900" MinHeight="420" MinWidth="700"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- Cac kho anh thuong gap cua may in ao "PublishToWeb PNG.pc3" - chi la goi y,
+             nguoi dung co the go/chon ten khac dung nhu da dang ky tren may -->
+        <x:Array x:Key="PngPaperSizeSuggestions" Type="{x:Type sys:String}">
+            <sys:String>800 x 600 Pixels</sys:String>
+            <sys:String>1024 x 768 Pixels</sys:String>
+            <sys:String>1600 x 1280 Pixels</sys:String>
+            <sys:String>2048 x 1536 Pixels</sys:String>
+            <sys:String>3200 x 2400 Pixels</sys:String>
+        </x:Array>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Dong 1: thu muc -->
+            <RowDefinition Height="Auto"/>
+            <!-- Dong 2: thanh cong cu tren luoi (xoa nhieu) -->
+            <RowDefinition Height="*"/>
+            <!-- Dong 3: luoi danh sach file -->
+            <RowDefinition Height="Auto"/>
+            <!-- Dong 4: dinh dang + tien trinh -->
+            <RowDefinition Height="Auto"/>
+            <!-- Dong 4: nut Xuat / Tam dung -->
+        </Grid.RowDefinitions>
+
+        <!-- ===== Dong 1: Thu muc chua file DWG ===== -->
+        <DockPanel Grid.Row="0" Margin="0,0,0,8" LastChildFill="True">
+            <Label Content="Thư mục bản vẽ:" DockPanel.Dock="Left" VerticalAlignment="Center" Padding="0,0,8,0"/>
+            <Button x:Name="BrowseButton" Content="Duyệt..." Width="90" DockPanel.Dock="Right"
+                    Margin="8,0,0,0" Click="BrowseButton_Click"/>
+            <TextBox x:Name="FolderPathTextBox" VerticalContentAlignment="Center"
+                     IsReadOnly="True" Background="#FFF5F5F5"/>
+        </DockPanel>
+
+        <!-- ===== Dong 2: thanh cong cu tren luoi - xoa nhieu ban ghi da chon ===== -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,6">
+            <Button x:Name="DeleteSelectedButton" Content="Xóa mục đã chọn" Padding="8,2"
+                    IsEnabled="False" Click="DeleteSelectedButton_Click" Foreground="#FFB00020"/>
+        </StackPanel>
+
+        <!-- ===== Dong 3: Luoi danh sach file DWG ===== -->
+        <DataGrid x:Name="DwgGrid" Grid.Row="2" AutoGenerateColumns="False"
+                  CanUserAddRows="False" CanUserDeleteRows="False"
+                  SelectionMode="Extended" SelectionChanged="DwgGrid_SelectionChanged"
+                  ItemsSource="{Binding}" RowHeaderWidth="0" Margin="0,0,0,8">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tên file" Binding="{Binding FileName}"
+                                     Width="3*" IsReadOnly="True"/>
+
+                <DataGridTemplateColumn Header="Model / Layout" Width="2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding AvailableTabs}"
+                                      SelectedItem="{Binding SelectedTab, UpdateSourceTrigger=PropertyChanged}"
+                                      Margin="2"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Khổ ảnh PNG" Width="2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox IsEditable="True"
+                                      ItemsSource="{StaticResource PngPaperSizeSuggestions}"
+                                      Text="{Binding PngPaperSize, UpdateSourceTrigger=PropertyChanged}"
+                                      Margin="2"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Kết quả" Binding="{Binding Status}"
+                                     Width="1.5*" IsReadOnly="True"/>
+
+                <DataGridTemplateColumn Header="" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Xem" Padding="8,2" Click="ViewButton_Click"
+                                    Tag="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Xuất" Padding="8,2" Click="ExportRowButton_Click"
+                                    Tag="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Xóa" Padding="8,2" Click="DeleteRowButton_Click"
+                                    Tag="{Binding}" Foreground="#FFB00020"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- ===== Dong 4a: dinh dang xuat + tien trinh ===== -->
+        <DockPanel Grid.Row="3" Margin="0,0,0,6" LastChildFill="True">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" VerticalAlignment="Center">
+                <Label Content="Xuất:" Padding="0,0,6,0" VerticalAlignment="Center"/>
+                <RadioButton x:Name="FormatBothRadio" Content="PDF + PNG" GroupName="Format"
+                             IsChecked="True" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <RadioButton x:Name="FormatPdfRadio" Content="Chỉ PDF" GroupName="Format"
+                             VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <RadioButton x:Name="FormatPngRadio" Content="Chỉ PNG" GroupName="Format"
+                             VerticalAlignment="Center"/>
+            </StackPanel>
+            <TextBlock x:Name="StatusText" DockPanel.Dock="Right" VerticalAlignment="Center"
+                       Margin="10,0,0,0" Text="" MinWidth="220" TextTrimming="CharacterEllipsis"/>
+            <ProgressBar x:Name="ExportProgressBar" Height="18" Margin="12,0,0,0"/>
+        </DockPanel>
+
+        <!-- ===== Dong 4b: nut Xuat / Tam dung ===== -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="PauseButton" Content="Tạm dừng" Width="110" Padding="0,4"
+                    Margin="0,0,8,0" IsEnabled="False" Click="PauseButton_Click"/>
+            <Button x:Name="ExportButton" Content="Xuất" Width="110" Padding="0,4"
+                    Click="ExportButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
